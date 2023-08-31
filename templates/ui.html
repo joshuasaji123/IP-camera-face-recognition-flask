@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <title>Face Recognition System</title>
+</head>
+<body class="bg-gray-900">
+<div class="container mx-auto">
+    <div class="flex flex-col items-center mt-10">
+        <h1 class="text-4xl text-blue-400 font-bold mb-6">Face scanning system</h1>
+        <form class="mt-4 space-y-3" action="/add_face" method="POST" enctype="multipart/form-data">
+            <!-- Add Image File Field -->
+            <div>
+                <label for="image" class="text-white">Add Image File to add user:</label>
+                <input type="file" name="image" id="image" accept="image/*" required class="px-4 py-2 bg-gray-800 text-white">
+            </div>
+            <!-- Name Field -->
+            <div>
+                <label for="name" class="text-white">Enter User's Name:</label>
+                <input type="text" name="name" id="name" placeholder="Enter user's name" required class="px-4 py-2 bg-gray-800 text-white">
+            </div>
+            <div>
+                <button type="submit" class="px-6 py-3 bg-blue-600 text-white hover:bg-blue-800 transition duration-300 ease-in-out">ADD FACE</button>
+            </div>
+        </form>
+        <div class="mt-4 space-x-2">
+            <!-- Resolution Buttons -->
+            <p class="text-white mb-2">Select Video Resolution:</p>
+            {% for resolution in resolutions %}
+                <a href="{{ url_for('set_resolution', resolution=resolution) }}" class="px-4 py-2 bg-blue-600 text-white hover:bg-blue-800 transition duration-300 ease-in-out">{{ resolution }}</a>
+            {% endfor %}
+        </div>
+        
+        <!-- Kill Program Button -->
+        <form action="/kill" class="mt-4" method="get">
+            <button type="submit" class="px-6 py-3 bg-red-600 text-white hover:bg-red-800 transition duration-300 ease-in-out">KILL PROGRAM</button>
+        </form>
+        
+        <img src="{{ url_for('video_feed') }}" class="mt-8 w-full shadow-lg" alt="Face Scanner">
+    </div>
+</div>
+</body>
+</html>
