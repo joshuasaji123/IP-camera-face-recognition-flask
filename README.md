@@ -62,5 +62,5 @@ Tested on macOS, Windows, and Linux.
 
 ## Demo
 
-![GIFMaker_me](https://github.com/joshuasaji123/Face-recognition-system/assets/143409651/626b50c6-3d10-4797-b872-eac020290008)
+![GIFMaker_me](https://github.com/joshuasaji123/IP-camera-face-recognition-flask/assets/143409651/6186333c-c083-43a2-8207-8ab8fbb1b73d)
 
